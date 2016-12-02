@@ -44,40 +44,6 @@ class PredisCacheTest extends CacheTest
         return new PredisCache($this->client);
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @dataProvider provideDataToCache
-     */
-    public function testSetContainsFetchDelete($value)
-    {
-        if ([] === $value) {
-            $this->markTestIncomplete(
-                'Predis currently doesn\'t support saving empty array values. '
-                . 'See https://github.com/nrk/predis/issues/241'
-            );
-        }
-
-        parent::testSetContainsFetchDelete($value);
-    }
-
-    /**
-     * {@inheritDoc}
-     *
-     * @dataProvider provideDataToCache
-     */
-    public function testUpdateExistingEntry($value)
-    {
-        if ([] === $value) {
-            $this->markTestIncomplete(
-                'Predis currently doesn\'t support saving empty array values. '
-                . 'See https://github.com/nrk/predis/issues/241'
-            );
-        }
-
-        parent::testUpdateExistingEntry($value);
-    }
-
     public function testAllowsGenericPredisClient()
     {
         /* @var $predisClient ClientInterface */
